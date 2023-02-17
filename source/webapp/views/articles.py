@@ -1,5 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.models import Article
 
@@ -21,5 +21,12 @@ def article_create(request: WSGIRequest):
         "text": request.POST.get('text'),
         "create_at": request.POST.get('create_at')
     }
-    Article.objects.create(**article_data)
-    return redirect(f"/")
+    article = Article.objects.create(**article_data)
+    return redirect("detail_view", pk=article.pk)
+
+
+def detail_view(request: WSGIRequest, pk):
+    article = get_object_or_404(Article, pk=pk)
+    return render(request, "detail_article.html", context={
+        'article': article
+    })
