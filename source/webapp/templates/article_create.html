@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div class="container">
+{% extends "base.html" %}
+{% block title %}Detail{% endblock %}
+{% block navbar %}
+<div class="navbar">
+    <ul>
+        <li>
+            <a href="{% url 'index_article' %}">Return to home page</a>
+        </li>
+    </ul>
+{% endblock %}
+{% block content %}
+    <div class="container">
     <form method="post">
         {%csrf_token%}
         <div class="row">
@@ -22,17 +26,10 @@
         </div>
         <div class="row">
             <label for="create_at">Cteate_at</label>
-            <input type="text" id="create_at" name="create_at">
+            <input type="date" id="create_at" name="create_at">
         </div>
         <button type="submit">Создать</button>
     </form>
 </div>
-<div class="navbar">
-    <ul>
-        <li>
-            <a href="{% url 'index_article' }">Return to home page</a>
-        </li>
-    </ul>
-</div>
-</body>
-</html>
+
+{% endblock %}

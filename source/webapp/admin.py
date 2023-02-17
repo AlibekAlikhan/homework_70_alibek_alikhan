@@ -9,7 +9,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ("id", "status", "create_at")
     search_fields = ("status", "text")
     filter = ("text", "status", "create_at")
-    readonly_fields = ("id", "create_at", "end_at")
+    readonly_fields = ("id", "create_at")
 
 
 admin.site.register(Article, ArticleAdmin)

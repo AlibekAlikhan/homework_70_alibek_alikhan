@@ -1,0 +1,10 @@
+
+.navbar{
+    font-size: 2rem;
+  text-align: center;
+  background-color: green;
+}
+.navbar a{
+    text-decoration: none;
+    color : white
+}
