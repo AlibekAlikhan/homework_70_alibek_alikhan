@@ -2,13 +2,15 @@
 {% block title %}Detail{% endblock %}
 {% block navbar %}
 <div class="navbar">
-<h2><a href="{% url 'create_article' %}">Add tasks</a></h2>
 <h2><a href="{% url 'index_article' %}">Home</a></h2>
-    <h2><a href="{% url 'article_delit' article.pk%}">Delete</a></h2>
-    <h2><a href="{% url 'article_update' article.pk%}">Update</a></h2>
 </div>
 {% endblock %}
 {% block content %}
+    <h2>Точно хочешь удалить</h2>
     <h2>{{article.status}}</h2>
-    <h2>{{article.detail_text}}</h2>
+    <h2>{{article.text}}</h2>
+    <form action="{% url 'confirm' article.pk %}" method="post">
+        {%csrf_token%}
+    <p><input type="submit" value="Удалить"></p>
+    </form>
 {% endblock %}

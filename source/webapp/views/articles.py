@@ -5,7 +5,7 @@ from webapp.models import Article
 
 
 def article_view(request: WSGIRequest):
-    articles = Article.objects.all()
+    articles = Article.objects.exclude(is_deleted=True)
     context = {
         "articles": articles
     }
@@ -44,3 +44,16 @@ def detail_view(request: WSGIRequest, pk):
     return render(request, "detail_article.html", context={
         'article': article
     })
+
+
+def deleted(request: WSGIRequest, pk):
+    article = get_object_or_404(Article, pk=pk)
+    return render(request, "delete_confirm.html", context={
+        'article': article
+    })
+
+
+def deleted_confirm(request: WSGIRequest, pk):
+    article = get_object_or_404(Article, pk=pk)
+    article.delete()
+    return redirect("index_article")
