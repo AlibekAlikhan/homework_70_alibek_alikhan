@@ -19,11 +19,24 @@ def article_create(request: WSGIRequest):
     article_data = {
         "status": request.POST.get('status'),
         "text": request.POST.get('text'),
-        "detail_text": request.POST.get('text'),
-        "create_at": request.POST.get('create_at')
+        "detail_text": request.POST.get('detail_text')
     }
     article = Article.objects.create(**article_data)
     return redirect("detail_view", pk=article.pk)
+
+
+def article_update(request: WSGIRequest, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if request.method == "POST":
+        article.status = request.POST.get('status')
+        article.text = request.POST.get('text')
+        article.detail_text = request.POST.get('detail_text')
+        article.save()
+        return redirect("detail_view", pk=article.pk)
+    else:
+        return render(request, "article_update.html", context={
+            'article': article
+        })
 
 
 def detail_view(request: WSGIRequest, pk):

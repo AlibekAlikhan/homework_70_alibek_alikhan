@@ -4,6 +4,7 @@
 <div class="navbar">
 <h2><a href="{% url 'create_article' %}">Add tasks</a></h2>
 <h2><a href="{% url 'index_article' %}">Home</a></h2>
+    <h2><a href="{% url 'article_update' article.pk%}">Update</a></h2>
 </div>
 {% endblock %}
 {% block content %}
