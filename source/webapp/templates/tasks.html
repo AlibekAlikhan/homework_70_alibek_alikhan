@@ -8,6 +8,7 @@
 {% block content %}
     {% for article in articles %}
     <h2>{{article.status}}</h2>
+    <h2>{{article.text}}</h2>
     <h2><a href="{% url 'detail_view' article.pk%}">Task detail info</a></h2>
     <h2>{{article.create_at}}</h2>
     <hr>

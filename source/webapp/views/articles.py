@@ -19,6 +19,7 @@ def article_create(request: WSGIRequest):
     article_data = {
         "status": request.POST.get('status'),
         "text": request.POST.get('text'),
+        "detail_text": request.POST.get('text'),
         "create_at": request.POST.get('create_at')
     }
     article = Article.objects.create(**article_data)
