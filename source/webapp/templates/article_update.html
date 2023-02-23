@@ -11,24 +11,7 @@
 {% block content %}
     <div class="container">
     <form method="post">
-        {%csrf_token%}
-        <div class="row">
-            <label>Status</label>
-            <select name="status">
-                <option value="new">new</option>
-                <option value="in_proces">in_proces</option>
-                <option value="made">made</option>
-            </select>
-        </div>
-        <div class="row">
-            <label for="text">Text</label>
-            <input type="text" id="text" name="text" value="{{article.text}}">
-        </div>
-        <div class="row">
-            <label for="detail_text">Detail Text</label>
-            <input type="text" id="detail_text" name="detail_text"  value="{{article.detail_text}}">
-        </div>
-        <button type="submit">Изменить</button>
+        {%include 'partial/article_form_origin.html' with input='Изменить' text=article.text detail_text=article.detail_text %}
     </form>
 </div>
 

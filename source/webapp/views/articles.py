@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.models import Article
 
+from webapp.forms import ArticleForm
+
 
 def article_view(request: WSGIRequest):
     articles = Article.objects.exclude(is_deleted=True)
@@ -11,6 +13,17 @@ def article_view(request: WSGIRequest):
     }
     return render(request, "tasks.html", context=context)
 
+
+# def article_create(request: WSGIRequest):
+#     if request.method == "GET":
+#         form = ArticleForm()
+#         return render(request, "article_create.html", context={"form": form})
+#     form = ArticleForm(data=request.POST)
+#     if not form.is_valid():
+#         return render(request, "article_create.html", context={"form": form})
+#     else:
+#         article = Article.objects.create(**form.cleaned_data)
+#         return redirect("detail_view", pk=article.pk)
 
 def article_create(request: WSGIRequest):
     if request.method == "GET":
