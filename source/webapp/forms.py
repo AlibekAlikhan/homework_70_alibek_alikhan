@@ -1,9 +1,24 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 from django.forms import widgets
 
 
-class ArticleForm(forms.Form):
-    text = forms.CharField(max_length=3000, required=True, label="Текст", widget=widgets.Textarea)
-    detail_text = forms.CharField(max_length=3000, required=True, label="Детальный текст", widget=widgets.Textarea)
+from webapp.models import Article
 
 
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ("status", "text", "detail_text")
+        labels = {
+            'status': 'Статус',
+            'text': 'Текст',
+            'detail_text': 'Детальный текст',
+        }
+
+    def clean_title(self):
+        text = self.cleaned_data.get("text")
+        if len(text) <= 2:
+            raise ValidationError("Заполните линию")
+        return text
