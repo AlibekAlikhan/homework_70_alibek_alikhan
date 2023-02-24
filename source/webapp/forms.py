@@ -17,7 +17,7 @@ class ArticleForm(forms.ModelForm):
             'detail_text': 'Детальный текст',
         }
 
-    def clean_title(self):
+    def clean_text(self):
         text = self.cleaned_data.get("text")
         if len(text) <= 2:
             raise ValidationError("Заполните линию")

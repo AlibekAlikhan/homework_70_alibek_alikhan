@@ -30,7 +30,7 @@ def article_update(request: WSGIRequest, pk):
     article = get_object_or_404(Article, pk=pk)
     if request.method == "POST":
         form = ArticleForm(request.POST, instance=article)
-        if form.is_valid():
+        if  form.is_valid():
             form.save()
             return redirect("detail_view", pk=article.pk)
         return render(request, "article_update.html", context={"form": form, "article": article})

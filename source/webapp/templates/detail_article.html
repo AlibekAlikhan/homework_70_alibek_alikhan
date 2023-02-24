@@ -2,10 +2,10 @@
 {% block title %}Detail{% endblock %}
 {% block navbar %}
 <div class="navbar">
-<h2><a href="{% url 'create_article' %}">Add tasks</a></h2>
-<h2><a href="{% url 'index_article' %}">Home</a></h2>
+<h2><a href="{% url 'create_article' %}" style="padding: 50px">Add tasks</a></h2>
+<h2><a href="{% url 'index_article' %}"  style="margin: 50px">Home</a></h2>
     <h2><a href="{% url 'article_delit' article.pk%}">Delete</a></h2>
-    <h2><a href="{% url 'article_update' article.pk%}">Update</a></h2>
+    <h2><a href="{% url 'article_update' article.pk%}" style="margin: 50px">Update</a></h2>
 </div>
 {% endblock %}
 {% block content %}
