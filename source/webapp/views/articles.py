@@ -6,6 +6,8 @@ from webapp.forms import ArticleForm
 
 from webapp.models import Article
 
+from webapp.models import Teg
+
 
 class ArticleView(TemplateView):
     template_name = "tasks.html"
@@ -56,6 +58,7 @@ class ArticleDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['article'] = get_object_or_404(Article, pk=kwargs['pk'])
+        context['teg'] = get_object_or_404(Teg, pk=kwargs['pk'])
         return context
 
 
