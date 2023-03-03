@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 from webapp.forms import ArticleForm
 
-from webapp.models import Article
+from webapp.models import Task
 
 from webapp.models import Teg
 
@@ -14,7 +14,7 @@ class ArticleView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['articles'] = Article.objects.all()
+        context['tasks'] = Task.objects.all()
         return context
 
 
@@ -39,17 +39,17 @@ class ArticleUpdateView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article'] = get_object_or_404(Article, pk=kwargs['pk'])
-        context['form'] = ArticleForm(instance=context['article'])
+        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
+        context['form'] = ArticleForm(instance=context['task'])
         return context
 
     def post(self, request, *args, **kwargs):
-        article = get_object_or_404(Article, pk=kwargs['pk'])
+        article = get_object_or_404(Task, pk=kwargs['pk'])
         form = ArticleForm(request.POST, instance=article)
         if form.is_valid():
             form.save()
             return redirect('detail_view', pk=article.pk)
-        return render(request, 'task_update.html', context={'form': form, 'article': article})
+        return render(request, 'task_update.html', context={'form': form, 'task': article})
 
 
 class ArticleDetailView(TemplateView):
@@ -57,7 +57,7 @@ class ArticleDetailView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article'] = get_object_or_404(Article, pk=kwargs['pk'])
+        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
         return context
 
 
@@ -66,12 +66,12 @@ class ArticleDeletedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['article'] = get_object_or_404(Article, pk=kwargs['pk'])
+        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
         return context
 
 
 class ArticleDeleteConfirmView(TemplateView):
     def post(self, request, *args, **kwargs):
-        article = get_object_or_404(Article, pk=kwargs['pk'])
+        article = get_object_or_404(Task, pk=kwargs['pk'])
         article.delete()
         return redirect("index_article")

@@ -4,12 +4,12 @@
 <div class="navbar">
 <h2><a href="{% url 'create_article' %}" style="padding: 50px">Add tasks</a></h2>
 <h2><a href="{% url 'index_article' %}"  style="margin: 50px">Home</a></h2>
-    <h2><a href="{% url 'article_delit' article.pk%}">Delete</a></h2>
-    <h2><a href="{% url 'article_update' article.pk%}" style="margin: 50px">Update</a></h2>
+    <h2><a href="{% url 'article_delit' task.pk%}">Delete</a></h2>
+    <h2><a href="{% url 'article_update' task.pk%}" style="margin: 50px">Update</a></h2>
 </div>
 {% endblock %}
 {% block content %}
-    <h2>{{article.status}}</h2>
-    <h2>{% for teg in article.teg.all %} {{ teg }} {% endfor %}</h2>
-    <h2>{{article.detail_text}}</h2>
+    <h2>{{task.status}}</h2>
+    <h2>{% for teg in task.teg.all %} {{ teg }} {% endfor %}</h2>
+    <h2>{{task.detail_text}}</h2>
 {% endblock %}

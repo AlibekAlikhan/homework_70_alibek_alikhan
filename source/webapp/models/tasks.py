@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class Article(models.Model):
+class Task(models.Model):
     status = models.ForeignKey('webapp.Status', related_name='articles', on_delete=models.CASCADE, verbose_name="Статус")
     teg = models.ManyToManyField(to="webapp.Teg", related_name="articles", blank=True)
     text = models.TextField(max_length=3000, null=True, verbose_name="Текст")

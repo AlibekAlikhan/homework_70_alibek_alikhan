@@ -4,12 +4,12 @@ from django.core.exceptions import ValidationError
 from django.forms import widgets
 
 
-from webapp.models import Article
+from webapp.models import Task
 
 
 class ArticleForm(forms.ModelForm):
     class Meta:
-        model = Article
+        model = Task
         fields = ("status", "teg", "text", "detail_text")
         labels = {
             'status': 'Статус',

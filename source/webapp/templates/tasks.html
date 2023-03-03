@@ -6,13 +6,13 @@
 </div>
 {% endblock %}
 {% block content %}
-{% for article in articles %}
+{% for task in tasks %}
 <div class="card" style="margin-top: 25px">
-    <h5 class="card-header">{{article.status}}</h5>
+    <h5 class="card-header">{{task.status}}</h5>
     <div class="card-body">
-        <h5 class="card-title">{{article.create_at}}t</h5>
-        <p class="card-text">{{article.text}}</p>
-        <a href="{% url 'detail_view' article.pk%}" class="btn btn-primary">Task detail info</a>
+        <h5 class="card-title">{{task.create_at}}t</h5>
+        <p class="card-text">{{task.text}}</p>
+        <a href="{% url 'detail_view' task.pk%}" class="btn btn-primary">Task detail info</a>
     </div>
 </div>
 {% endfor %}

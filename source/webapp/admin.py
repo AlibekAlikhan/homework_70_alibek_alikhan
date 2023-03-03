@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from webapp.models import Article, Status, Teg
+from webapp.models import Task, Status, Teg
 
 
 # Register your models here.
@@ -26,4 +26,4 @@ class TegAdmin(admin.ModelAdmin):
 
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Teg, TegAdmin)
-admin.site.register(Article, ArticleAdmin)
+admin.site.register(Task, ArticleAdmin)
