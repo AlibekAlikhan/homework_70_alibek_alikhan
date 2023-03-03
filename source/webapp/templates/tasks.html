@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block navbar %}
-    <div class="navbar">
+<div class="navbar">
     <a href="article/create">Add tasks</a>
-    </div>
+</div>
 {% endblock %}
 {% block content %}
-    {% for article in articles %}
-    <h2>{{article.status}}</h2>
-    <h2>{{article.text}}</h2>
-    <h2><a href="{% url 'detail_view' article.pk%}">Task detail info</a></h2>
-    <h2>{{article.create_at}}</h2>
-    <hr>
-    {% endfor %}
+{% for article in articles %}
+<div class="card" style="margin-top: 25px">
+    <h5 class="card-header">{{article.status}}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{article.create_at}}t</h5>
+        <p class="card-text">{{article.text}}</p>
+        <a href="{% url 'detail_view' article.pk%}" class="btn btn-primary">Task detail info</a>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
