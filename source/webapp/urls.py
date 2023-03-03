@@ -1,6 +1,6 @@
 from django.urls import path
 
-from webapp.views.articles import ArticleView, ArticleCreateView, ArticleDetailView, ArticleUpdateView, ArticleDeletedView, ArticleDeleteConfirmView
+from webapp.views.tasks import ArticleView, ArticleCreateView, ArticleDetailView, ArticleUpdateView, ArticleDeletedView, ArticleDeleteConfirmView
 
 
 urlpatterns =[

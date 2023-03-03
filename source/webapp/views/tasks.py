@@ -19,7 +19,7 @@ class ArticleView(TemplateView):
 
 
 class ArticleCreateView(TemplateView):
-    template_name = "article_create.html"
+    template_name = "task_create.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,11 +31,11 @@ class ArticleCreateView(TemplateView):
         if form.is_valid():
             article = form.save()
             return redirect('detail_view', pk=article.pk)
-        return render(request, 'article_create.html', context={'form': form})
+        return render(request, 'task_create.html', context={'form': form})
 
 
 class ArticleUpdateView(TemplateView):
-    template_name = "article_update.html"
+    template_name = "task_update.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,11 +49,11 @@ class ArticleUpdateView(TemplateView):
         if form.is_valid():
             form.save()
             return redirect('detail_view', pk=article.pk)
-        return render(request, 'article_update.html', context={'form': form, 'article': article})
+        return render(request, 'task_update.html', context={'form': form, 'article': article})
 
 
 class ArticleDetailView(TemplateView):
-    template_name = "detail_article.html"
+    template_name = "detail_task.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
