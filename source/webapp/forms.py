@@ -10,10 +10,11 @@ from webapp.models import Article
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ("status", "text", "detail_text")
+        fields = ("status", "teg", "text", "detail_text")
         labels = {
             'status': 'Статус',
             'text': 'Текст',
+            'teg': 'Тег',
             'detail_text': 'Детальный текст',
         }
 
