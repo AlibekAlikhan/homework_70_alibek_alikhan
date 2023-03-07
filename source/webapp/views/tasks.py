@@ -46,6 +46,7 @@ class ArticleUpdateView(TemplateView):
     def post(self, request, *args, **kwargs):
         article = get_object_or_404(Task, pk=kwargs['pk'])
         form = ArticleForm(request.POST, instance=article)
+        article.update()
         if form.is_valid():
             form.save()
             return redirect('detail_view', pk=article.pk)
