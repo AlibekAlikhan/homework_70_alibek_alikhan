@@ -2,10 +2,13 @@
 {% block title %}Home{% endblock %}
 {% block navbar %}
 <div class="navbar">
-    <a href="article/create">Add tasks</a>
+    <a href="article/create" style="padding-right: 20px">Add tasks</a>
+    <a href="{% url 'create_project' %}" style="padding-right: 20px">Add project</a>
+    <a href="{% url 'project_index' %}">Project List</a>
 </div>
 {% endblock %}
 {% block content %}
+    {% include 'partial/search.html' %}
 {% for task in tasks %}
 <div class="card" style="margin-top: 25px">
     <h5 class="card-header">{{task.status}}</h5>
@@ -16,4 +19,7 @@
     </div>
 </div>
 {% endfor %}
+    {% if is_paginated %}
+   {% include 'partial/paginate.html' %}
+{% endif %}
 {% endblock %}

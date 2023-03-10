@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Detail{% endblock %}
+{% block navbar %}
+<div class="navbar">
+<h2><a href="{% url 'create_article' %}" style="padding: 50px">Add tasks</a></h2>
+<h2><a href="{% url 'project_index' %}"  style="margin: 50px">Home</a></h2>
+    <h2><a href="{% url 'index_article' %}"  style="margin: 50px">Задачи</a></h2>
+    <h2><a href="{% url 'project_update' project.pk%}" style="margin: 50px">Update</a></h2>
+</div>
+{% endblock %}
+{% block content %}
+    <h1>{{ project.name }}</h1>
+    <h1>{{ project.text_project }}</h1>
+    <h1>{{ project.start_at }}</h1>
+    {% for pj in project.tegs.all %}
+    <div class="card" style="margin-top: 25px">
+    <h5 class="card-header">{{pj.status}}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{pj.create_at}}t</h5>
+        <p class="card-text">{{pj.text}}</p>
+    </div>
+</div>
+    {% endfor %}
+{% endblock %}

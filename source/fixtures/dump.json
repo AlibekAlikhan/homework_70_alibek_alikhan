@@ -1,55 +1,33 @@
 [
   {
     "model": "webapp.task",
+    "pk": 1,
+    "fields": {
+      "status": 1,
+      "project": 1,
+      "text": "asd",
+      "detail_text": "sdfsdsfdsdasdadsd sdsdffsdsdd dsfdsfdsdfsf ds",
+      "iis_deleted": false,
+      "create_at": "2023-03-10T12:54:09.391Z",
+      "update_at": null,
+      "deleted_at": null,
+      "teg": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "webapp.task",
     "pk": 2,
     "fields": {
-      "status": 3,
-      "text": "aaaaaaaaa",
-      "detail_text": "sdadsa asdadsasadsaa dfgdgfdfdddddddddddddddddddddddddddddddddddddddddddd",
-      "create_at": "2023-03-02T00:00:00Z",
-      "update_at": "2023-03-02T15:00:17.438Z",
-      "teg": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 6,
-    "fields": {
-      "status": 1,
-      "text": "adsdfs",
-      "detail_text": "xcvxcxvxfgh fgh fgfgfghfghh fgfgghjghgf ddfdfgdgf",
-      "create_at": "2023-03-03T10:34:18.239Z",
-      "update_at": "2023-03-07T08:45:02.114Z",
-      "teg": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 7,
-    "fields": {
       "status": 2,
-      "text": "jgjhjh2",
-      "detail_text": "ssssssssss",
-      "create_at": "2023-03-03T10:42:58.553Z",
+      "project": 2,
+      "text": "sdfsfdsfds ffgfgfhf gfhg",
+      "detail_text": "dfsds d fsfdsdfsdfdfghg fghfgghfhgfghfhgggggggggggggggg",
+      "iis_deleted": false,
+      "create_at": "2023-03-10T12:54:35.603Z",
       "update_at": null,
-      "teg": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 9,
-    "fields": {
-      "status": 1,
-      "text": "ghfhgfhg",
-      "detail_text": "hjgjhgjhgjhg jhghjgjh j  jh",
-      "create_at": "2023-03-07T07:53:39.473Z",
-      "update_at": null,
+      "deleted_at": null,
       "teg": [
         2
       ]
@@ -57,41 +35,16 @@
   },
   {
     "model": "webapp.task",
-    "pk": 10,
-    "fields": {
-      "status": 1,
-      "text": "ghfgff",
-      "detail_text": "dfdgfd fgfghfgfhg fghghjghhhhhhhhhhhhhhhh jghjhjhggdfdsdf dgfg",
-      "create_at": "2023-03-07T08:32:03.404Z",
-      "update_at": null,
-      "teg": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 11,
-    "fields": {
-      "status": 2,
-      "text": "sdsdfs ddfdgf dfdffdfgd",
-      "detail_text": "sdsfsdsfdfgfg fgh hfghggggggggggggggggghjg ghhjghgfgsddfs sgd",
-      "create_at": "2023-03-07T08:32:20.809Z",
-      "update_at": null,
-      "teg": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 12,
+    "pk": 3,
     "fields": {
       "status": 3,
-      "text": "qwe",
-      "detail_text": "hjkhjkjgtrtty fgffgyu sdddfhgfsa",
-      "create_at": "2023-03-07T08:32:40.113Z",
+      "project": 3,
+      "text": "dfg",
+      "detail_text": "fdfdfgddfgghgjh ghghgghggjhghjghghghg dssfdsfdfssdsfdsd",
+      "iis_deleted": false,
+      "create_at": "2023-03-10T12:55:00.430Z",
       "update_at": null,
+      "deleted_at": null,
       "teg": [
         3
       ]
@@ -99,41 +52,50 @@
   },
   {
     "model": "webapp.task",
-    "pk": 13,
-    "fields": {
-      "status": 2,
-      "text": "sds2",
-      "detail_text": "fdfhg ffdfffffffffffffffffffffffdddddddddddds dsddddddsdsdfsd",
-      "create_at": "2023-03-07T08:33:01.711Z",
-      "update_at": "2023-03-07T08:46:22.523Z",
-      "teg": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 14,
+    "pk": 4,
     "fields": {
       "status": 1,
-      "text": "zdsds3",
-      "detail_text": "cvxvcxcxcxcxcvdfvdfdvfdvf",
-      "create_at": "2023-03-07T08:33:24.736Z",
+      "project": 1,
+      "text": "rtyr",
+      "detail_text": "hdfdsdfs gfghj hfgdsdfsfdf dasadssdadasadassada fgfgd",
+      "iis_deleted": false,
+      "create_at": "2023-03-10T12:55:47.065Z",
       "update_at": null,
+      "deleted_at": null,
       "teg": [
-        1
+        3
       ]
     }
   },
   {
     "model": "webapp.task",
-    "pk": 15,
+    "pk": 5,
+    "fields": {
+      "status": 2,
+      "project": 2,
+      "text": "dsdfsfdsdsdd sfdfsdsdsfsddfsf",
+      "detail_text": "sddfffffffffffffffffffffffffffffffffffffffffffffffff dddddddddddddddddddddddddddddddddddddddddddd",
+      "iis_deleted": false,
+      "create_at": "2023-03-10T12:56:21.601Z",
+      "update_at": null,
+      "deleted_at": null,
+      "teg": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 6,
     "fields": {
       "status": 3,
-      "text": "kjhkjhkjhhjhkh",
-      "detail_text": "hgfhgfhfgjhhklkljkhygyjhghguyghjgj hgjhghgjhkj kljkhuhhihjknkj jjhlkj",
-      "create_at": "2023-03-07T08:34:26.706Z",
+      "project": 3,
+      "text": "asadas",
+      "detail_text": "fghfgfg fghhfdsfaerettytrty r fddfdfgdfgd",
+      "iis_deleted": false,
+      "create_at": "2023-03-10T12:56:44.486Z",
       "update_at": null,
+      "deleted_at": null,
       "teg": [
         3
       ]
@@ -179,6 +141,42 @@
     "pk": 3,
     "fields": {
       "name": "Enhancement"
+    }
+  },
+  {
+    "model": "webapp.project",
+    "pk": 1,
+    "fields": {
+      "start_at": "2023-03-02",
+      "end_at": "2023-03-03",
+      "name": "ВДВ",
+      "text_project": "ываывы ываавапвпавав вы авасчсмчсчв выв ывы2",
+      "iis_deleted": false,
+      "deleted_project_at": null
+    }
+  },
+  {
+    "model": "webapp.project",
+    "pk": 2,
+    "fields": {
+      "start_at": "2023-03-03",
+      "end_at": "2023-03-24",
+      "name": "ASD",
+      "text_project": "fd fgdgfdfdfgdf dg fdgfgfghfh gfhggdfsd",
+      "iis_deleted": false,
+      "deleted_project_at": null
+    }
+  },
+  {
+    "model": "webapp.project",
+    "pk": 3,
+    "fields": {
+      "start_at": "2023-03-22",
+      "end_at": "2023-03-25",
+      "name": "GHJ",
+      "text_project": "dfgdgd gfg hfdsdsdfsdfsdsdfsfd sdvdbvxvcxcx cvdfg",
+      "iis_deleted": false,
+      "deleted_project_at": null
     }
   },
   {
@@ -401,152 +399,152 @@
     "model": "auth.permission",
     "pk": 25,
     "fields": {
-      "name": "Can add article",
+      "name": "Can add teg",
       "content_type": 7,
-      "codename": "add_article"
+      "codename": "add_teg"
     }
   },
   {
     "model": "auth.permission",
     "pk": 26,
     "fields": {
-      "name": "Can change article",
+      "name": "Can change teg",
       "content_type": 7,
-      "codename": "change_article"
+      "codename": "change_teg"
     }
   },
   {
     "model": "auth.permission",
     "pk": 27,
     "fields": {
-      "name": "Can delete article",
+      "name": "Can delete teg",
       "content_type": 7,
-      "codename": "delete_article"
+      "codename": "delete_teg"
     }
   },
   {
     "model": "auth.permission",
     "pk": 28,
     "fields": {
-      "name": "Can view article",
+      "name": "Can view teg",
       "content_type": 7,
-      "codename": "view_article"
+      "codename": "view_teg"
     }
   },
   {
     "model": "auth.permission",
     "pk": 29,
     "fields": {
-      "name": "Can add status",
+      "name": "Can add task",
       "content_type": 8,
-      "codename": "add_status"
+      "codename": "add_task"
     }
   },
   {
     "model": "auth.permission",
     "pk": 30,
     "fields": {
-      "name": "Can change status",
+      "name": "Can change task",
       "content_type": 8,
-      "codename": "change_status"
+      "codename": "change_task"
     }
   },
   {
     "model": "auth.permission",
     "pk": 31,
     "fields": {
-      "name": "Can delete status",
+      "name": "Can delete task",
       "content_type": 8,
-      "codename": "delete_status"
+      "codename": "delete_task"
     }
   },
   {
     "model": "auth.permission",
     "pk": 32,
     "fields": {
-      "name": "Can view status",
+      "name": "Can view task",
       "content_type": 8,
-      "codename": "view_status"
+      "codename": "view_task"
     }
   },
   {
     "model": "auth.permission",
     "pk": 33,
     "fields": {
-      "name": "Can add teg",
+      "name": "Can add status",
       "content_type": 9,
-      "codename": "add_teg"
+      "codename": "add_status"
     }
   },
   {
     "model": "auth.permission",
     "pk": 34,
     "fields": {
-      "name": "Can change teg",
+      "name": "Can change status",
       "content_type": 9,
-      "codename": "change_teg"
+      "codename": "change_status"
     }
   },
   {
     "model": "auth.permission",
     "pk": 35,
     "fields": {
-      "name": "Can delete teg",
+      "name": "Can delete status",
       "content_type": 9,
-      "codename": "delete_teg"
+      "codename": "delete_status"
     }
   },
   {
     "model": "auth.permission",
     "pk": 36,
     "fields": {
-      "name": "Can view teg",
+      "name": "Can view status",
       "content_type": 9,
-      "codename": "view_teg"
+      "codename": "view_status"
     }
   },
   {
     "model": "auth.permission",
     "pk": 37,
     "fields": {
-      "name": "Can add task",
-      "content_type": 7,
-      "codename": "add_task"
+      "name": "Can add project",
+      "content_type": 10,
+      "codename": "add_project"
     }
   },
   {
     "model": "auth.permission",
     "pk": 38,
     "fields": {
-      "name": "Can change task",
-      "content_type": 7,
-      "codename": "change_task"
+      "name": "Can change project",
+      "content_type": 10,
+      "codename": "change_project"
     }
   },
   {
     "model": "auth.permission",
     "pk": 39,
     "fields": {
-      "name": "Can delete task",
-      "content_type": 7,
-      "codename": "delete_task"
+      "name": "Can delete project",
+      "content_type": 10,
+      "codename": "delete_project"
     }
   },
   {
     "model": "auth.permission",
     "pk": 40,
     "fields": {
-      "name": "Can view task",
-      "content_type": 7,
-      "codename": "view_task"
+      "name": "Can view project",
+      "content_type": 10,
+      "codename": "view_project"
     }
   },
   {
     "model": "auth.user",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$390000$L9ontQjBpTJNqjx3IdTvsh$1ob63Q3apIVnpFgZddSd4ZzLVsgFooAfxYPr+IEVC8g=",
-      "last_login": "2023-03-02T13:35:15.698Z",
+      "password": "pbkdf2_sha256$390000$JG08mK3sFlsUh7c5ycDLz1$2gTbPIVCXy42/kVwWVSXWSqMabkQoNO7yDWrBJzVo7s=",
+      "last_login": "2023-03-10T12:46:18.290Z",
       "is_superuser": true,
       "username": "bob",
       "first_name": "",
@@ -554,7 +552,7 @@
       "email": "",
       "is_staff": true,
       "is_active": true,
-      "date_joined": "2023-03-02T13:34:51.111Z",
+      "date_joined": "2023-03-10T12:45:56.035Z",
       "groups": [],
       "user_permissions": []
     }
@@ -563,7 +561,7 @@
     "model": "auth.user",
     "pk": 2,
     "fields": {
-      "password": "pbkdf2_sha256$390000$7hpjf8ZsEzf2lALV52nyuE$cPgMdo3QoTKuEeXTa6i/SO1tpSmQVCjWYcckT7z1iHY=",
+      "password": "pbkdf2_sha256$390000$kV93gij9QI2RciiQdffG0W$yjdltub1FBHMhZtRU1pCFjSB02iSjd6gXvFgefE4hpo=",
       "last_login": null,
       "is_superuser": false,
       "username": "John",
@@ -572,7 +570,7 @@
       "email": "",
       "is_staff": false,
       "is_active": true,
-      "date_joined": "2023-03-02T13:35:37.185Z",
+      "date_joined": "2023-03-10T12:46:35.472Z",
       "groups": [],
       "user_permissions": []
     }

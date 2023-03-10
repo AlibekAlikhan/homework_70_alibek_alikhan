@@ -1,56 +1,69 @@
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView
-
+from django.urls import reverse, reverse_lazy
+from django.utils.http import urlencode
+from django.views.generic import TemplateView, ListView, CreateView, DeleteView, UpdateView
+from django.db.models import Q
 from webapp.forms import ArticleForm
 
 from webapp.models import Task
 
-from webapp.models import Teg
+from webapp.forms import SearchForm
 
 
-class ArticleView(TemplateView):
+class ArticleView(ListView):
     template_name = "tasks.html"
+    model = Task
+    context_object_name = "tasks"
+    ordering = ['-create_at']
+    paginate_by = 3
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tasks'] = Task.objects.all()
+    def get(self, request, *args, **kwargs):
+        self.form = self.get_search_form()
+        self.search_value = self.get_search_value()
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['form'] = self.form
+        if self.search_value:
+            context['query'] = urlencode({'search': self.search_value})
         return context
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.search_value:
+            queryset.delete()
+            query = Q(text__icontains=self.search_value) | Q(detail_text__icontains=self.search_value)
+            queryset = queryset.filter(query)
+        return queryset.exclude(iis_deleted=True)
 
-class ArticleCreateView(TemplateView):
+    def get_search_form(self):
+        return SearchForm(self.request.GET)
+
+    def get_search_value(self):
+        if self.form.is_valid():
+            return self.form.cleaned_data['search']
+        return None
+
+
+class ArticleCreateView(CreateView):
     template_name = "task_create.html"
+    model = Task
+    form_class = ArticleForm
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = ArticleForm()
-        return context
-
-    def post(self, request, *args, **kwargs):
-        form = ArticleForm(data=request.POST)
-        if form.is_valid():
-            article = form.save()
-            return redirect('detail_view', pk=article.pk)
-        return render(request, 'task_create.html', context={'form': form})
+    def get_success_url(self):
+        return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})
 
 
-class ArticleUpdateView(TemplateView):
+class ArticleUpdateView(UpdateView):
+    model = Task
     template_name = "task_update.html"
+    form_class = ArticleForm
+    context_object_name = 'task'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
-        context['form'] = ArticleForm(instance=context['task'])
-        return context
-
-    def post(self, request, *args, **kwargs):
-        article = get_object_or_404(Task, pk=kwargs['pk'])
-        form = ArticleForm(request.POST, instance=article)
-        article.update()
-        if form.is_valid():
-            form.save()
-            return redirect('detail_view', pk=article.pk)
-        return render(request, 'task_update.html', context={'form': form, 'task': article})
+    def get_success_url(self):
+        return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})
 
 
 class ArticleDetailView(TemplateView):
@@ -62,17 +75,8 @@ class ArticleDetailView(TemplateView):
         return context
 
 
-class ArticleDeletedView(TemplateView):
-    template_name = "delete_confirm.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
-        return context
-
-
-class ArticleDeleteConfirmView(TemplateView):
-    def post(self, request, *args, **kwargs):
-        article = get_object_or_404(Task, pk=kwargs['pk'])
-        article.delete()
-        return redirect("index_article")
+class ArticleDeleteView(DeleteView):
+    template_name = 'delete_confirm.html'
+    model = Task
+    context_object_name = 'task'
+    success_url = reverse_lazy('index_article')

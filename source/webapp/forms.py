@@ -4,6 +4,8 @@ from django.core.validators import MinLengthValidator, MaxLengthValidator, BaseV
 
 from webapp.models import Task
 
+from webapp.models import Project
+
 
 class CustomLenValidator(BaseValidator):
     def __init__(self, limit_value):
@@ -25,10 +27,31 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ("status", "teg", "text", "detail_text")
+        fields = ("status", "teg", "text", "detail_text", "project")
         labels = {
             'status': 'Статус',
             'text': 'Текст',
             'teg': 'Тег',
+            'project': 'Проект',
             'detail_text': 'Детальный текст',
         }
+
+
+class ProjectForm(forms.ModelForm):
+    start_at = forms.DateField(label='Время начала', widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}),
+                               required=False)
+    end_at = forms.DateField(label='Время конца', widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}),
+                               required=False)
+    class Meta:
+        model = Project
+        fields = ("start_at", "end_at", "name", "text_project")
+        labels = {
+            'start_at': 'Время начала',
+            'end_at': 'Время конца',
+            'name': 'Название',
+            'text_project': 'Текст'
+        }
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=20, required=False, label='Найти')
