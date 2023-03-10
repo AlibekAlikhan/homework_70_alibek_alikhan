@@ -6,6 +6,7 @@
 <h2><a href="{% url 'project_index' %}"  style="margin: 50px">Home</a></h2>
     <h2><a href="{% url 'index_article' %}"  style="margin: 50px">Задачи</a></h2>
     <h2><a href="{% url 'project_update' project.pk%}" style="margin: 50px">Update</a></h2>
+<h2><a href="{% url 'project_delit' project.pk%}">Delete</a></h2>
 </div>
 {% endblock %}
 {% block content %}

@@ -27,6 +27,9 @@ class ProjectView(ListView):
     context_object_name = 'project'
     model = Project
 
+    def get_queryset(self):
+        return Project.objects.exclude(iis_deleted=True)
+
 
 class ProjectUpdateView(UpdateView):
     model = Project
@@ -43,3 +46,6 @@ class ProjectDeleteView(DeleteView):
     model = Project
     context_object_name = 'project'
     success_url = reverse_lazy('project_index')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request)
