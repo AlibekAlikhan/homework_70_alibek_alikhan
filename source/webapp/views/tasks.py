@@ -33,7 +33,6 @@ class ArticleView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.search_value:
-            queryset.delete()
             query = Q(text__icontains=self.search_value) | Q(detail_text__icontains=self.search_value)
             queryset = queryset.filter(query)
         return queryset.exclude(iis_deleted=True)
@@ -80,3 +79,6 @@ class ArticleDeleteView(DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('index_article')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request)
