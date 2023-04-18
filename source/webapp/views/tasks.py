@@ -16,7 +16,7 @@ class ArticleView(ListView):
     model = Task
     context_object_name = "tasks"
     ordering = ['-create_at']
-    paginate_by = 3
+    paginate_by = 10
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
